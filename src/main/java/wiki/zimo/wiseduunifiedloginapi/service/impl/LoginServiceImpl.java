@@ -70,7 +70,12 @@ public class LoginServiceImpl implements LoginService {
         } else if(login_url.trim().contains("bistu.edu.cn")){
             BistuLoginProcess process = new BistuLoginProcess(login_url, params);
             return process.login();
-        }else {
+        } else if(login_url.trim().contains("tjut.edu.cn")){
+            TjutCasLoginProcess process = new TjutCasLoginProcess(login_url, params);
+            return process.login();
+        }
+        
+        else {
             CasLoginProcess process = new CasLoginProcess(login_url, params);
             return process.login();
         }
